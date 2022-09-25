@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "versionName": "1.0",
+  "updateLink": "google.com",
+  "updateTitle": "new update TITLE",
+  "updateDesc": "new update DESC",
+  "updateMandatory": "true",
+  "additionalText": "additional text NEW"
+}
