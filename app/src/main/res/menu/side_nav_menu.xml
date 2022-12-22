@@ -5,4 +5,23 @@
     tools:showIn="navigation_view">
 
 
+    <group
+        android:checkableBehavior="single"
+        android:menuCategory="secondary">
+        <item android:title="Grammar" android:id="@+id/nav_drawer_grammar_id"
+            android:icon="@drawable/ic_round_abc_24"/>
+
+        <item android:title="Idioms" android:id="@+id/nav_drawer_idioms_id"
+            android:icon="@drawable/ic_round_menu_book_24"/>
+
+        <item android:title="Proverbs" android:id="@+id/nav_drawer_proverbs_id"
+            android:icon="@drawable/ic_round_menu_book_24"/>
+
+    </group>
+
+
+
+
+
+
 </menu>

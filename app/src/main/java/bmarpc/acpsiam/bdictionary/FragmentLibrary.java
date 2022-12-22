@@ -1,6 +1,5 @@
 package bmarpc.acpsiam.bdictionary;
 
-import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,17 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-
 public class FragmentLibrary extends Fragment {
 
     DBHandler dbHandler;
-    LibraryRecyclerviewModel libraryRecyclerviewModel;
-    LibraryRecyclerViewAdapter libraryRecyclerViewAdapter;
+    RecyclerviewModel libraryRecyclerviewModel;
+    RecyclerViewAdapter libraryRecyclerViewAdapter;
     RecyclerView recyclerView;
-
-
-
+    static String viewType;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,15 +25,19 @@ public class FragmentLibrary extends Fragment {
         dbHandler = new DBHandler(requireActivity());
         recyclerView = v.findViewById(R.id.library_recyclerview_id);
 
+        viewType = "library";
 
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        libraryRecyclerviewModel = new LibraryRecyclerviewModel(MainActivity.enWords, MainActivity.bnWords);
-        libraryRecyclerViewAdapter = new LibraryRecyclerViewAdapter(requireActivity(), libraryRecyclerviewModel);
+
+        libraryRecyclerviewModel = new RecyclerviewModel(SetupActivity.enWords, SetupActivity.bnWords, viewType);
+        libraryRecyclerViewAdapter = new RecyclerViewAdapter(requireActivity(), libraryRecyclerviewModel);
+
         recyclerView.setAdapter(libraryRecyclerViewAdapter);
 
 
         return v;
     }
+
 }

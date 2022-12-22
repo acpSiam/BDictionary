@@ -6,17 +6,26 @@
         app:title="Theme"
         app:allowDividerBelow="true">
 
+        <Preference
+            android:title="App Color"
+            app:summary="Prefered color: "
+            app:icon="@drawable/ic_round_color_lens_24"
+            android:key="@string/color_pref"/>
+
+
         <rikka.material.preference.MaterialSwitchPreference
             app:title="Night Mode"
             app:summary="Enable night mode to get a dark tone in app and help protect your eyes"
             app:icon="@drawable/ic_round_format_paint_24"
-            app:key="@string/night_mode_pref"/>
+            app:key="@string/night_mode_pref"
+            app:isPreferenceVisible="false"/>
 
         <rikka.material.preference.MaterialSwitchPreference
             app:title="Adaptive App Icon"
-            app:summary="App icon changes according to the selected app theme"
+            app:summary="App icon changes according to the app theme"
             app:icon="@drawable/ic_round_icecream_24"
-            app:key="@string/adaptive_app_icon_pref"/>
+            app:key="@string/adaptive_app_icon_pref"
+            android:defaultValue="true"/>
 
         <rikka.preference.SimpleMenuPreference
             app:title="App Icon"
@@ -62,14 +71,7 @@
 
 
     <PreferenceCategory
-        app:title="Developer Options"
-        android:enabled="false">
-
-        <rikka.material.preference.MaterialSwitchPreference
-            app:title="Enable Beta"
-            app:summary="Enable the beta features which are yet being tested"
-            app:icon="@drawable/ic_round_integration_instructions_24"
-            app:key="ENABLE_BETA"/>
+        app:title="Developer Options">
 
         <Preference
             app:title="Add Words"
@@ -83,11 +85,11 @@
             app:summary="Fix a translation, help us correct the mistakes in our library"
             app:key="FIX_TRANSLATION"/>
 
-        <EditTextPreference
+        <Preference
             app:title="Report Bug"
             app:icon="@drawable/ic_round_bug_report_24"
             app:summary="Help us catch the bug that causes inconvenience for you or crashes the app"
-            app:key="BUG_REPORT"/>
+            app:key="@string/bug_report_pref"/>
 
     </PreferenceCategory>
 
@@ -98,30 +100,28 @@
 
 
     <PreferenceCategory
-        app:title="Sharing and Caring"
-        android:enabled="false">
+        app:title="Sharing and Caring">
 
         <Preference
             app:title="Share"
             app:icon="@drawable/ic_round_groups_2_24"
             app:summary="Share the app and help us reach everyone"
-            app:key="SHARE"/>
+            app:key="@string/share_pref"/>
 
-        <SeekBarPreference
-            android:max="5"
-            app:updatesContinuously="true"
-            app:seekBarIncrement="1"
-            app:showSeekBarValue="true"
-            app:title="Rate"
-            app:summary="Give a rating and let us know how much you loved our app"
-            app:key="RATING"
-            app:icon="@drawable/ic_round_star_24"/>
 
         <Preference
             app:title="Contribute"
             app:icon="@drawable/ic_round_volunteer_activism_24"
-            app:summary="Contribute to us. That gives us motivation"
-            app:key="CONTRIBUTE"/>
+            app:summary="@string/contribute_pref_summary"
+            app:key="@string/contribute_pref"/>
+
+        <Preference
+            app:isPreferenceVisible="false"
+            app:title="Rate"
+            app:summary="Give a rating and let us know how much you loved our app"
+            app:key="@string/rating_pref"
+            app:icon="@drawable/ic_round_star_24"/>
+
 
     </PreferenceCategory>
 
@@ -138,20 +138,17 @@
         <Preference
             app:title="Contact Dev"
             app:icon="@drawable/ic_round_developer_mode_24"
-            app:summary="Contact the developer"
-            app:key="CONTACT_DEV"
-            android:enabled="false"/>
-
-        <Preference
-            app:title="Copyright"
-            app:icon="@drawable/ic_round_copyright_24"
-            app:key="COPYRIGHT"
-            android:enabled="false"/>
+            app:key="@string/contact_dev_pref"/>
 
         <Preference
             app:title="Disclaimer"
             app:icon="@drawable/ic_round_history_edu_24"
             app:key="@string/disclaimer_pref"/>
+
+        <Preference
+            app:title="Copyright"
+            app:icon="@drawable/ic_round_copyright_24"
+            app:key="@string/copyright_pref"/>
 
         <Preference
             app:title="About"

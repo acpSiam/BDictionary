@@ -2,14 +2,25 @@ package bmarpc.acpsiam.bdictionary;
 
 import java.util.ArrayList;
 
-public class LibraryRecyclerviewModel {
+public class RecyclerviewModel {
 
     ArrayList<String> enWords, bnWords;
+    static String viewType;
 
 
-    public LibraryRecyclerviewModel(ArrayList<String> enWords, ArrayList<String> bnWords) {
+    public RecyclerviewModel(ArrayList<String> enWords, ArrayList<String> bnWords, String viewType) {
         this.enWords = enWords;
         this.bnWords = bnWords;
+        this.viewType = viewType;
+    }
+
+
+    public String getViewType() {
+        return viewType;
+    }
+
+    public void setViewType(String viewType) {
+        this.viewType = viewType;
     }
 
     public ArrayList<String> getEnWords() {
@@ -27,4 +38,5 @@ public class LibraryRecyclerviewModel {
     public void setBnWords(ArrayList<String> bnWords) {
         this.bnWords = bnWords;
     }
+
 }

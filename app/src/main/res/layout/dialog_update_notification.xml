@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/Widget.Material3.CardView.Filled"
+    app:cardCornerRadius="18dp"
+    android:layout_margin="22dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
+
+        <Button
+            android:id="@+id/update_dialog_dismiss_button_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_round_cancel_24"
+            app:iconSize="28dp"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="12dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:lottie_rawRes="@raw/update_rocket"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:layout_margin="12dp"/>
+
+            <TextView
+                android:id="@+id/update_dialog_title_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Update Available"
+                android:fontFamily="@font/baloo_bhaijaan"
+                android:textSize="21sp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/update_dialog_version_id"
+                android:text="Version: 1.0 | v1.0-Alpha"
+                android:layout_gravity="center"
+                android:typeface="monospace"/>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:minHeight="100dp"
+                style="@style/Widget.Material3.CardView.Elevated"
+                android:layout_margin="21dp"
+                app:cardCornerRadius="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What's New:"
+                    android:textStyle="bold"
+                    android:layout_margin="18dp"/>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="18dp"
+                    android:layout_marginTop="36dp">
+
+                    <LinearLayout
+                        android:layout_marginStart="18dp"
+                        android:layout_marginEnd="18dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:scrollbars="none">
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/update_dialog_description_id"
+                            android:text="@string/large_text"/>
+
+                    </LinearLayout>
+                </ScrollView>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:animateLayoutChanges="true"
+                android:id="@+id/update_dialog_download_button_id"
+                app:cardBackgroundColor="?colorPrimaryContainer"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="56dp"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="16dp"
+                app:elevation="333dp"
+                style="@style/Widget.Material3.CardView.Elevated">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true">
+
+                    <TextView
+                        android:id="@+id/update_dialog_download_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:text="Update and Install"
+                        android:textColor="?colorOnPrimaryContainer"
+                        android:layout_gravity="center|top"/>
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        app:lottie_colorFilter="?colorPrimary"
+                        android:id="@+id/update_dialog_download_lottie_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        app:lottie_progress="1"
+                        app:lottie_rawRes="@raw/progress_bar"
+                        android:layout_marginBottom="-60dp"
+                        android:layout_marginTop="-30dp"/>
+
+
+                </FrameLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <Button
+                android:id="@+id/cancelDownloadId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Cancel"
+                android:visibility="gone"/>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:max="100"
+                android:visibility="gone"
+                android:id="@+id/progressbarid"/>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

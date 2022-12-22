@@ -46,7 +46,7 @@ public class FragmentMainTranslation extends Fragment {
     }
 
 
-    private void getTranslations(){
+    private void getTranslations() {
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(getString(R.string.TRANSLATION_DATA), Context.MODE_PRIVATE);
         EN_SYNS = sharedPreferences.getString(getString(R.string.EN_SYNS_STR), "");
         BN_SYNS = sharedPreferences.getString(getString(R.string.BN_SYNS_STR), "");
@@ -78,35 +78,33 @@ public class FragmentMainTranslation extends Fragment {
     }
 
 
-
-    private void validateFields(){
-        if (englishSyns.getText().toString().trim().equals("")){
+    private void validateFields() {
+        if (englishSyns.getText().toString().trim().equals("")) {
             enSynsLAyout.setVisibility(View.GONE);
         } else {
             enSynsLAyout.setVisibility(View.VISIBLE);
         }
 
 
-        if (banglaSyns.getText().toString().trim().equals("")){
+        if (banglaSyns.getText().toString().trim().equals("")) {
             bnSynsLayout.setVisibility(View.GONE);
         } else {
             enSynsLAyout.setVisibility(View.VISIBLE);
         }
 
 
-        if (ants.getText().toString().trim().equals("")){
+        if (ants.getText().toString().trim().equals("")) {
             antsLayout.setVisibility(View.GONE);
         } else {
             antsLayout.setVisibility(View.VISIBLE);
         }
 
 
-        if (SENTS.trim().equals("")){
+        if (SENTS.trim().equals("")) {
             sentsContainerLayout.setVisibility(View.GONE);
         } else {
             sentsContainerLayout.setVisibility(View.VISIBLE);
         }
-
 
     }
 }

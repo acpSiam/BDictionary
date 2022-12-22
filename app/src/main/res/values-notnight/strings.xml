@@ -2,6 +2,6 @@
 <resources>
 
     <!-- Detecting Theme State   -->
-    <string name="theme_state">DAY</string>
+    <string name="theme_state_STR">DAY</string>
 
 </resources>

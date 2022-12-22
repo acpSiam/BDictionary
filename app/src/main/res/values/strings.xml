@@ -27,22 +27,18 @@
     <string name="wrong_word">Oops! Did you make a spelling mistake?!</string>
 
 
-    <!-- Detecting Theme State   -->
-    <string name="theme_state">DAY</string>
-    <string name="THEME_TOGGLE_SP_STR">THEME_TOGGLE_SHARED_PREFERENCES_STR</string>
-    <string name="THEME_STATE_STR">THEME_STATE_STR</string>
-
-    <!--  Fragment Pref Keys  -->
-    <string name="fragment_pref_key">FRAGMENT_KEY</string>
-    <string name="current_frag_key">CURRENT_FRAG</string>
-    <string name="fragment_translate">FRAGMENT_TRANSLATE</string>
-    <string name="fragment_settings">FRAGMENT_SETTINGS</string>
+    <string name="disclaimer_text">We cannot guarantee yet that every information regarding the dictionary in the app is fully accurate.
+        We are constantly trying to improve. Any information regarding the database which helps us improve will be
+        highly appreciated. You\'re always welcome to contact us, give feedback and share your thoughts. \nThanks for using our app ❤\n</string>
+    <string name="about_text">BDictionary\nVersion: 2.0 [barira] — Stable\nDB Version: 1.0\n\nDownloaded and hosted from GITHUB</string>
+    <string name="copyright_text">BDictionary is an open-source android project. Free use of BDictionary is allowed\n\nCopyright ©️2022\n
+    Shahria Iltimas — acpSiam</string>
 
 
     <!--  Shared Preferences String Datas
           NOT TODO: Do not change these strings  -->
     <string name="TRANSLATION_DATA">TRANSLATION_DATA</string>
-    <string name="ENGLISH_STR">BANGLA_STR</string>
+    <string name="ENGLISH_STR">ENGLISH_STR</string>
     <string name="BANGLA_STR">BANGLA_STR</string>
     <string name="PRONS_STR">PRONS_STR</string>
     <string name="EN_SYNS_STR">EN_SYNS_STR</string>
@@ -52,6 +48,41 @@
     <string name="DEFINITION_EN_STR">DEFINITION_EN_STR</string>
     <string name="DEFINITION_BN_STR">DEFINITION_BN_STR</string>
     <string name="ANTONYMS_STR">ANTONYMS_STR</string>
+
+
+    <!-- Detecting Theme State   -->
+    <string name="theme_state_STR">DAY</string>
+    <string name="THEME_TOGGLE_SP_STR">THEME_TOGGLE_SHARED_PREFERENCES_STR</string>
+    <string name="THEME_STATE_STR">THEME_STATE_STR</string>
+
+
+    <!-- Prefered Color String Datas   -->
+    <string name="color_preference_STR">COLOR_PREFERENCE</string>
+    <string name="selected_color_pref_STR">SELECTED_COLOR</string>
+
+
+    <!--  Fragment Pref Keys  -->
+    <string name="current_frag_pref_STR">CURRENT_FRAG</string>
+    <string name="home_frag_pref_BOOL">CURRENT_FRAG</string>
+
+
+
+    <string name="contribute_done_str">CONTRIBUTE_DONE</string>
+    <!--  Shared Preferences String Datas END
+          NOT TODO: Do not change these strings  -->
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_text"><strike>A</strike>/B Dictionary with complete Bangla to English translation database. Comes with a modern UI</string>
+    <string name="large_text">abcdlorem ipsum</string>
+    <string name="bdictionary">BDictionary</string>
+    <string name="wrong_spelling">Spelling might be wrong</string>
+
+
+    <!-- Preference Screen Summaries  -->
+    <string name="contribute_pref_summary">Contribute to us. That gives us motivation.</string>
+    <string name="contribute_pref_summary_2">Bengali doesn\'t contribute to open sources usually. You wanted to and thanks for that. Take LOVE❤️</string>
 
 
     <!-- Preference Screen Keys
@@ -64,7 +95,14 @@
     <string name="night_mode_pref">NIGHT_MODE_KEY</string>
     <string name="disclaimer_pref">DISCLAIMER</string>
     <string name="about_pref">ABOUT</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="color_pref">COLOR</string>
+    <string name="share_pref">SHARE</string>
+    <string name="rating_pref">RATING</string>
+    <string name="contribute_pref">CONTRIBUTE</string>
+    <string name="rating_thought">Share your thoughts</string>
+    <string name="copyright_pref">COPYRIGHT</string>
+    <string name="contact_dev_pref">CONTACT_DEV</string>
+    <string name="bug_report_pref">BUG_REPORT</string>
+
 
 </resources>

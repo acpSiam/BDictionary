@@ -13,7 +13,7 @@
         android:title="@string/favourites"
         android:icon="@drawable/ic_favourites_checkable"
         app:showAsAction="ifRoom"
-        android:enabled="false"/>
+        android:enabled="true"/>
 
     <item
         android:id="@+id/bottom_nav_translate"
@@ -27,7 +27,7 @@
         android:title="@string/history"
         android:icon="@drawable/ic_round_history_24"
         app:showAsAction="ifRoom"
-        android:enabled="false"/>
+        android:enabled="true"/>
 
 
     <item

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
+    app:cardCornerRadius="30dp"
+    style="@style/Widget.Material3.CardView.Elevated"
+    android:backgroundTint="?colorErrorContainer">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/bug_report_no_internet"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:lottie_rawRes="@raw/no_internet"
+            app:lottie_autoPlay="true"/>
+
+        <LinearLayout
+            android:id="@+id/bug_report_main_layout_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:orientation="vertical">
+
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                app:lottie_rawRes="@raw/bug_hunt"
+                app:lottie_autoPlay="true"
+                android:layout_gravity="center"
+                app:lottie_loop="true"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Report the bug and help us catch that"
+                android:fontFamily="@font/baloo_bhaijaan"
+                android:textSize="18sp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We apologise if you found an error in the app or app crashed, let us know. It helps us improve."
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/baloo_bhaijaan"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox.Dense"
+                    android:layout_marginEnd="2dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/bug_report_name_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:maxLines="1"
+                        android:inputType="textPersonName" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox.Dense"
+                    android:layout_marginStart="2dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/bug_report_email_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        android:maxLines="1"
+                        android:inputType="textEmailAddress"  />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox.Dense"
+                app:helperTextEnabled="true"
+                app:helperText="Describe in details what problem you faced.">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bug_report_message_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top|start"
+                    android:height="120dp"
+                    android:hint="Bug Description" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:layout_marginTop="40dp">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Dismiss"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:theme="@style/ThemeOverlay.Material3.Button.TonalButton"
+                    android:id="@+id/dismiss_button_bug_report_dialog_id"
+                    android:backgroundTint="?colorOnError"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Send"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/positive_button_bug_report_dialog_id"
+                    android:backgroundTint="?colorOnErrorContainer"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

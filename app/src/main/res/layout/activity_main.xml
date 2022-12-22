@@ -5,12 +5,24 @@
     android:id="@+id/drawer_layout_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:animateLayoutChanges="true">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/love_lottie_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/love"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo_bhaijaan"
                     android:gravity="center"
-                    android:text="BDictionary"
+                    android:text="@string/bdictionary"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +76,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:lottie_rawRes="@raw/theme_toggle" />
+                    app:lottie_rawRes="@raw/theme_toggle"
+                    tools:ignore="ImageContrastCheck" />
 
 
 
@@ -99,14 +112,27 @@
         </LinearLayout>
 
 
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottom_navigation_view_id"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:fitsSystemWindowsInsets="bottom"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:menu="@menu/bottom_menu" />-->
+
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_view_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_menu" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:menu="@menu/bottom_menu"
+            app:itemHorizontalTranslationEnabled="true"
+            app:labelVisibilityMode="selected"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -115,7 +141,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/side_nav_menu" />
+        app:menu="@menu/side_nav_menu"
+        app:headerLayout="@layout/side_nav_header"
+        android:animateLayoutChanges="true"/>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
