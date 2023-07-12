@@ -1,8 +1,7 @@
 # <img align="left" loading="lazy" src="screenshots/bdictionary_logo.png" height="50"/> BDictionary
 
 
-<a href='release/app-release.apk'><img alt='Download BDictionary' src='screenshots/Download%20Button%20Github.png' height='80'/></a>
-
+<a href='https://github.com/acpSiam/BDictionary/raw/master/app/release/BDictionary%20%5BV1%20-%201.0%20-%20AVA%5D.apk'><img alt='Download BDictionary' src='screenshots/Download%20Button%20Github.png' height='80'/></a>
 
 ## Overview
 
@@ -33,8 +32,7 @@ Contributions to the Dictionary App are always welcome! If you have an idea for 
 
 ## Installation
 **For general purpose:**
-1. [Download](release/app-release.apk) and install as like an usual app. The app is not yet available in the app stores. So github is currently the only source of getting the app.
-
+1. [Download](https://github.com/acpSiam/BDictionary/raw/master/app/release/BDictionary%20%5BV1%20-%201.0%20-%20AVA%5D.apk) and install as like an usual app. The app is not yet available in the app stores. So github is currently the only source of getting the app.
 **For Devs**
 To get started with the Dictionary App, follow these steps:
 
