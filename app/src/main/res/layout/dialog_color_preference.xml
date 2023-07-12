@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Material3.CardView.Elevated"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
+    app:cardCornerRadius="30dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:scaleType="centerInside"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/paint"
+                android:layout_gravity="center"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_bhaijaan"
+            android:text="@string/preferred_color_selection"
+            android:textSize="18sp" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="30dp"
+            style="@style/Widget.Material3.CardView.Filled">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:id="@+id/grammar_copyright_notice_scrollview_id">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="4"
+                        android:baselineAligned="false">
+
+
+
+
+
+
+
+
+
+
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_margin="4dp"
+                            android:id="@+id/color_pref_blue_id"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                app:cardBackgroundColor="@color/seed"
+                                app:cardCornerRadius="30dp"
+                                app:cardElevation="0dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/baloo_bhaijaan"
+                                android:gravity="center"
+                                android:text="Blue"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_margin="4dp"
+                            android:id="@+id/color_pref_cyan_id"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                app:cardBackgroundColor="@color/cyan_seed"
+                                app:cardCornerRadius="30dp"
+                                app:cardElevation="0dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/baloo_bhaijaan"
+                                android:gravity="center"
+                                android:text="Cyan"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_margin="4dp"
+                            android:id="@+id/color_pref_purple_id"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                app:cardBackgroundColor="@color/purple_seed"
+                                app:cardCornerRadius="30dp"
+                                app:cardElevation="0dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:fontFamily="@font/baloo_bhaijaan"
+                                    android:lineHeight="8dp"
+                                    android:rotation="-45"
+                                    android:text="for bts \nlovers🥴"
+                                    android:textColor="?colorSecondary"
+                                    tools:targetApi="p" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/baloo_bhaijaan"
+                                android:gravity="center"
+                                android:text="Purple"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_margin="4dp"
+                            android:id="@+id/color_pref_lime_id"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                app:cardBackgroundColor="@color/lime_seed"
+                                app:cardCornerRadius="30dp"
+                                app:cardElevation="0dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/baloo_bhaijaan"
+                                android:gravity="center"
+                                android:text="Lime"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+                </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SetupActivity"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_marginStart="30dp"
+    android:layout_marginEnd="30dp"
+    android:animateLayoutChanges="true">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textSize="50sp"
+        android:fontFamily="@font/baloo_bhaijaan"
+        android:layout_marginTop="150dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_greet_text"
+        android:textSize="18sp"
+        android:fontFamily="@font/baloo_bhaijaan"/>
+
+
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        android:id="@+id/setup_language_chip_group_id">
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="বাংলা"
+            android:id="@+id/setup_bn_language_pref_chip_id"
+            app:checkedIcon="@drawable/ic_round_check_24"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:checkable="true"/>
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:id="@+id/setup_en_language_pref_chip_id"
+            app:checkedIcon="@drawable/ic_round_check_24"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:checkable="true"
+            android:checked="true"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/setup_activity_start_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:fontFamily="@font/baloo_bhaijaan"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:maxWidth="100dp"
+        app:icon="@drawable/ic_round_arrow_right_alt_24"
+        app:iconGravity="textEnd"/>
+
+
+
+</LinearLayout>

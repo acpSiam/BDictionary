@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.TranslationFragment"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none"
+    android:animateLayoutChanges="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondaryContainer"
+            android:fitsSystemWindows="true"
+            android:animateLayoutChanges="true"
+            android:layout_marginBottom="-45dp"
+            android:paddingBottom="45dp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_text_layout_id"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="24dp"
+                android:hint="@string/translate"
+                app:boxBackgroundColor="?android:colorBackground"
+                app:boxCornerRadiusBottomEnd="100dp"
+                app:boxCornerRadiusBottomStart="100dp"
+                app:boxCornerRadiusTopEnd="100dp"
+                app:boxCornerRadiusTopStart="100dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:endIconDrawable="@drawable/ic_round_cancel_24"
+                app:endIconMode="clear_text"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_round_search_24">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/search_text_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:completionThreshold="3"
+                    android:hint="@string/translate"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    tools:ignore="TextContrastCheck"
+                    android:dropDownHeight="400dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/hidden_translation_layout_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:textColor="?colorOnSecondaryContainer"
+                    android:id="@+id/main_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/word"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:textColor="?colorOnSecondaryContainer"
+                    android:id="@+id/translated_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/bengali_meaning"
+                    android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/ic_round_volume_up_speaker_24" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="25dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/fragment_translate_save_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:layout_weight=".8"
+                        android:text="@string/save"
+                        app:icon="@drawable/ic_round_favorite_border_24"
+                        app:iconGravity="top" />
+
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/fragment_translate_speak_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:layout_weight="1.4"
+                        android:text="@string/speak"
+                        app:icon="@drawable/ic_round_volume_up_speaker_24"
+                        app:iconGravity="top" />
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/fragment_translate_copy_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:layout_weight=".8"
+                        android:text="@string/copy"
+                        app:icon="@drawable/ic_round_content_copy_24"
+                        app:iconGravity="top" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:animateLayoutChanges="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="50dp"
+            app:cardCornerRadius="45dp"
+            android:layout_marginBottom="-45dp"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            style="@style/Widget.Material3.CardView.Elevated">
+
+            <LinearLayout
+                android:id="@+id/viewpager_hidden_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingBottom="45dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp">
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tab_layout_id"
+                    style="@style/Widget.Material3.TabLayout"
+                    android:background="?colorSurface"
+                    android:layout_marginBottom="8dp"/>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/pager"/>
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/lottie_layout_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/boy_studying_2" />
+
+
+                <TextView
+                    android:id="@+id/fragment_library_animation_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/baloo_bhaijaan"
+                    android:gravity="center"
+                    android:padding="24dp"
+                    android:text="@string/initial_lottie_speech"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+</ScrollView>

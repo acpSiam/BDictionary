@@ -1,0 +1,54 @@
+plugins {
+    alias(libs.plugins.com.android.application)
+}
+
+android {
+    namespace 'com.bmarpc.acpsiam.bdictionarydev'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.bmarpc.acpsiam.bdictionarydev"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0 - AVA"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+
+configurations.configureEach {
+    exclude group: 'dev.rikka.rikkax.appcompat', module: 'appcompat'
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    def preference_version = "1.2.0"
+    implementation libs.androidx.preference
+    implementation libs.lottie    //Lottie Animation
+    implementation libs.material.preference        //Material 3 Preference Screen
+}

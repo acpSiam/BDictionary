@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        android:id="@+id/preference_screen_language_chip_group_id">
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="বাংলা"
+            android:id="@+id/preference_screen_bn_language_pref_chip_id"
+            app:checkedIcon="@drawable/ic_round_check_24"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:checkable="true"/>
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:id="@+id/preference_screen_en_language_pref_chip_id"
+            app:checkedIcon="@drawable/ic_round_check_24"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:checkable="true"
+            android:checked="true"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+</LinearLayout>

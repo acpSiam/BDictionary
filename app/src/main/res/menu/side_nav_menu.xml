@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_drawer_home_id"
+            android:title="@string/nav_drawer_home"
+            android:icon="@drawable/ic_round_home_24"
+            android:checked="true" />
+
+        <item android:title="@string/nav_drawer_more" android:checkableBehavior="single">
+            <menu>
+                <group android:checkableBehavior="single">
+
+                    <item
+                        android:id="@+id/nav_drawer_idioms_id"
+                        android:title="@string/nav_drawer_idioms"
+                        android:icon="@drawable/ic_round_menu_book_24" />
+
+                    <item
+                        android:id="@+id/nav_drawer_proverbs_id"
+                        android:title="@string/nav_drawer_proverbs"
+                        android:icon="@drawable/ic_round_menu_book_24" />
+
+                    <item
+                        android:id="@+id/nav_drawer_prepositions_id"
+                        android:title="@string/nav_drawer_prepositions"
+                        android:icon="@drawable/ic_round_menu_book_24" />
+                </group>
+            </menu>
+        </item>
+
+        <item android:title="@string/nav_drawer_fun_learn" android:checkableBehavior="single">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:title="@string/nav_drawer_games"
+                        android:icon="@drawable/ic_round_casino_24"
+                        android:visible="false"/>
+
+                    <item
+                        android:id="@+id/nav_drawer_quiz_id"
+                        android:title="@string/nav_drawer_quiz"
+                        android:icon="@drawable/ic_round_quiz_24" />
+                </group>
+            </menu>
+        </item>
+
+        <item android:title="@string/nav_drawer_additional" android:checkableBehavior="single">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_drawer_settings_id"
+                        android:title="@string/nav_drawer_settings"
+                        android:icon="@drawable/ic_round_settings_24" />
+                </group>
+            </menu>
+        </item>
+
+        <item android:title="@string/nav_drawer_about">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_drawer_developer_info_id"
+                        android:title="@string/nav_drawer_developer_info"
+                        android:icon="@drawable/img_dev_transparent" />
+
+                </group>
+                <group android:checkableBehavior="none">
+                    <item
+                        android:id="@+id/nav_drawer_disclaimer_id"
+                        android:title="@string/nav_drawer_disclaimer"
+                        android:icon="@drawable/ic_round_history_edu_24" />
+
+                    <item
+                        android:id="@+id/nav_drawer_copyright_id"
+                        android:title="@string/nav_drawer_copyright"
+                        android:icon="@drawable/ic_round_copyright_24" />
+
+                    <item
+                        android:id="@+id/nav_drawer_about_id"
+                        android:title="@string/nav_drawer_about_me"
+                        android:icon="@drawable/ic_round_info_24" />
+                </group>
+
+
+            </menu>
+        </item>
+    </group>
+</menu>

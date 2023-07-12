@@ -1,0 +1,186 @@
+<resources>
+    <string name="app_name" translatable="false">BDictionary DEV</string>
+
+    <!--    SetupActivity string resources-->
+    <string name="error_copying">Error Copying</string>
+    <string name="dictionary_set_up_to_use">Dictionary set up to use</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_greet_text"><strike>A</strike>/B Dictionary with complete Bangla to English translation database. Comes along with a modern UI and much more to explore</string>
+    <string name="start">START</string>
+
+    <!--    TranslationFragment string resources-->
+    <string name="translate">Translate a word</string>
+    <string name="word">Word</string>
+    <string name="bengali_meaning">Bengali Meaning</string>
+    <string name="save">Save</string>
+    <string name="speak">Speak</string>
+    <string name="copy">Copy</string>
+    <string name="initial_lottie_speech">I\'m looking at the dictionary for you to translate!</string>
+    <string name="wrong_word_lottie_speech">Oops! Did you make a spelling mistake?!</string>
+    <string name="wrong_spelling">Spelling might be wrong</string>
+    <string name="more">More</string>
+    <string name="additional">Additional</string>
+    <string name="added_to_favourites">Added to favourites</string>
+    <string name="pronunciation_not_available">Pronunciation Not Available</string>
+    <string name="copied">Copied</string>
+
+    <!--    TranslationInnerFragmentMain string resources-->
+    <string name="bengali_synonyms">● Bengali Synonyms</string>
+    <string name="english_synonyms">● English Synonyms</string>
+    <string name="meaning">● Meaning</string>
+    <string name="antonyms">● Antonyms</string>
+    <string name="sentences">● Sentences\n</string>
+    <string name="word_type">● Word Type</string>
+    <string name="def">● Definition</string>
+    <string name="def_bangla">● Definition Bangla</string>
+    <string name="removed_from_favourites">Removed from favourites</string>
+
+
+    <!--    HistoryFragment string resources-->
+    <string name="empty_history_message">Your translation history will appear here</string>
+
+    <!--    HistoryFragment string resources-->
+    <string name="empty_favourites_id">You haven\'t added any favourite words yet</string>
+    <string name="clear_history">Clear History?</string>
+    <string name="clear">Clear</string>
+    <string name="no">No</string>
+
+
+
+    <!--    Quiz Fragment-->
+    <string name="quiz">Play a quiz</string>
+    <string name="focus_on"><u>Focus on:</u></string>
+    <string name="cancel">Cancel</string>
+    <string name="question">Question</string>
+    <string name="please_select_an_answer">Please select an answer</string>
+    <string name="number_of_questions">"Number of questions: "</string>
+    <string name="nothing_found">Nothing Found</string>
+    <string name="submit">Submit</string>
+    <string name="number_of_questions_10">Number of questions: 10</string>
+
+
+    <!--    MainActivity string resources-->
+    <!--    <string name="prepositions">" (PREPOSITIONS)"</string>-->
+    <!--    <string name="proverbs">" (PROVERBS)"</string>-->
+    <!--    <string name="idiom">" (IDIOM)"</string>-->
+    <string name="dictionary_loaded">Dictionary Loaded</string>
+
+    <!--    ServiceBackgroundJob string resources-->
+    <string name="job_started" translatable="false">Job started</string>
+    <string name="job_cancelled_before_completion" translatable="false">Job cancelled before completion</string>
+
+
+    <!--    Side Menu-->
+    <string name="nav_drawer_more">More</string>
+    <string name="nav_drawer_fun_learn">Fun Learn</string>
+    <string name="nav_drawer_additional">Additional</string>
+    <string name="nav_drawer_home">Home</string>
+    <string name="nav_drawer_grammar">Grammar</string>
+    <string name="nav_drawer_idioms">Idioms</string>
+    <string name="nav_drawer_proverbs">Proverbs</string>
+    <string name="nav_drawer_prepositions">Prepositions</string>
+    <string name="nav_drawer_games">Games</string>
+    <string name="nav_drawer_quiz">Quiz</string>
+    <string name="nav_drawer_settings">Settings</string>
+    <string name="nav_drawer_developer_info">Developer Info</string>
+    <string name="nav_drawer_disclaimer">Disclaimer</string>
+    <string name="nav_drawer_copyright">Copyright</string>
+    <string name="copyright_notice">Copyright Notice</string>
+    <string name="nav_drawer_about_me">About Me</string>
+    <string name="nav_drawer_about">About</string>
+    <string name="dev_info" translatable="false">Philosopher, Learner, Enthusiast. Know more in the Developer Info panel</string>
+    <string name="okay">Okay</string>
+    <!--    Side Nav Header-->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_out">Sign Out</string>
+
+
+    <!--    Bottom Menu-->
+    <string name="bottom_nav_favourites">Favourites</string>
+    <string name="bottom_nav_translate">Translate</string>
+    <string name="bottom_nav_history">History</string>
+
+
+    <!--    Preference Screen-->
+    <string name="color_preference_title">App Color</string>
+    <string name="color_preference_summary">Preferred color:</string>
+    <string name="adaptive_app_icon_preference_title">Adaptive App Icon</string>
+    <string name="adaptive_app_icon_preference_summary">App icon changes according to the app theme</string>
+    <string name="language_preference_title">Language</string>
+    <string name="preferred_color_selection">Choose your preferred color</string> <!-- DIALOGUE COLOR CHOICE-->
+    <string name="purple_message_string"><small>for BTS lovers 🥴</small></string> <!-- DIALOGUE COLOR CHOICE-->
+
+
+
+
+
+
+
+
+
+    <!--    Large Strings-->
+    <string name="copyright_notice_grammar"><u>Copyright Notice</u>:\n\n
+        The English grammar database used in this app has been collected from various sources. I have made my best efforts to ensure that all content used is in compliance with copyright laws.\n\n
+        However, I cannot guarantee that the entire database is free from any copyright restrictions.\n\n
+        If you believe that any portion of the database infringes upon your rights or you are the respectful owner, please contact with me so that I can address the issue promptly.\n\n
+        [BDictionary]</string>
+
+    <string name="disclaimer_app_dialog">
+        Disclaimer:\n\n
+        The Dictionary App provides translations based on a large database created by the app developer. While efforts have been made to ensure accuracy, translations may not be perfect due to language variations and contextual factors. The database aims to minimize errors, but occasional misspellings or false information may occur. Users are responsible for verifying and validating translations. Language evolution means that some newer words or usages may not be included but effort were made at best. The app developer is not liable for any damages or losses resulting from the use of translations. Third-party content is provided for reference, but its accuracy is not guaranteed. By using the app, you agree to these terms.\n\n
+
+        Note: This disclaimer is subject to change and should be reviewed periodically.
+    </string>
+
+    <string name="copyright_notice_app_dialog">
+        Copyright 2023 - BDictionary\n\n
+
+        All rights reserved. \n\n
+
+        The source code of this app, including its design, architecture, and functionality is released under an open-source license and is free for anyone to use, modify, and distribute. However, the databases included in this app, except for the grammar database, are the sole property of BDictionary. These databases are protected by copyright laws.\n\n
+
+        The grammar database included in this app has been collected from the internet and does not belong to BDictionary. It is used under fair use, as applicable.\n\n
+
+        You are granted a non-exclusive, non-transferable license to use and access the source code for personal, educational, and non-commercial purposes. You may modify and distribute the source code in accordance with the terms of the open-source license.\n\n
+
+        However, you may not modify, distribute, reproduce, sell, or create derivative works based on the databases, except for the grammar database, without the explicit written permission of BDictionary owner. Unauthorized use, reproduction, or distribution of the databases, in whole or in part, may result in severe civil and criminal penalties under applicable law.\n\n
+
+        For inquiries regarding the use or licensing of the databases, except for the grammar database, please contact Acp Siam at acpsiam@gmail.com or look at the Developer Info panel.\n\n
+
+        Any other trademarks, logos, or copyrighted materials used in this app belong to their respective owners and are used under fair use or with permission.
+    </string>
+
+
+
+    <!--    KEYS ONLY-->
+    <!--    Shared Preferences Strings-->
+    <string name="SHARED_PREFERENCES_APP_PROCESS" translatable="false">SHARED_PREFERENCES_APP_PROCESS</string>
+    <string name="DEVICE_UID" translatable="false">DEVICE_UID</string>
+    <string name="DEVICE_INFO" translatable="false">DEVICE_INFO</string>
+    <string name="SETUP_DB_VERSION" translatable="false">SETUP_DB_VERSION</string>
+    <string name="OLD_DEVICE" translatable="false">OLD_DEVICE</string>
+    <string name="CURRENT_LOCALE" translatable="false">CURRENT_LOCALE</string>
+    <string name="SELECTED_THEME_COLOR" translatable="false">SELECTED_THEME_COLOR_STR</string>
+    <string name="HOME_FRAGMENT_BOOLEAN" translatable="false">HOME_FRAGMENT_BOOLEAN</string>
+    <string name="THEME_STATE" translatable="false">THEME_STATE</string>
+    <string name="DICTIONARY_ADAPTERS_LOADED_BOOLEAN" translatable="false">DICTIONARY_ADAPTERS_LOADED_BOOLEAN</string>
+
+    <string name="ENGLISH_STR" translatable="false">ENGLISH_STR</string>                <!-- Searched word data  -->
+    <string name="BANGLA_STR" translatable="false">BANGLA_STR</string>
+    <string name="PRONS_STR" translatable="false">PRONS_STR</string>
+    <string name="EN_SYNS_STR" translatable="false">EN_SYNS_STR</string>
+    <string name="BN_SYNS_STR" translatable="false">BN_SYNS_STR</string>
+    <string name="SENTS_STR" translatable="false">SENTS_STR</string>
+    <string name="WORD_TYPE_STR" translatable="false">WORD_TYPE_STR</string>
+    <string name="DEFINITION_EN_STR" translatable="false">DEFINITION_EN_STR</string>
+    <string name="DEFINITION_BN_STR" translatable="false">DEFINITION_BN_STR</string>
+    <string name="ANTONYMS_STR" translatable="false">ANTONYMS_STR</string>           <!-- Searched word data  -->
+
+
+    <!--    Preference Screen Keys-->
+    <string name="COLOR_PREFERENCE" translatable="false">COLOR_PREFERENCE</string>
+    <string name="LANGUAGE_PREFERENCE" translatable="false">LANGUAGE_PREFERENCE</string>
+
+
+</resources>
