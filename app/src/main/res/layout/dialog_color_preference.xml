@@ -31,7 +31,7 @@
             android:fontFamily="@font/baloo_bhaijaan"
             android:text="@string/preferred_color_selection"
             android:textSize="18sp"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="18dp"/>
 
 
 
@@ -93,6 +93,16 @@
                 app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/purple_md_theme_light_secondaryContainer"
                 android:layout_marginEnd="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BTS"
+                    android:textSize="9sp"
+                    android:textColor="@color/purple_seed"
+                    android:rotation="-45"
+                    android:padding="4dp"
+                    android:fontFamily="@font/abril_fatface"/>
 
                 <LinearLayout
                     android:id="@+id/color_pref_purple_id"
@@ -307,6 +317,15 @@
                 app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/blue_md_theme_light_secondaryContainer"
                 android:layout_marginEnd="4dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💙"
+                    android:textSize="9sp"
+                    android:rotation="-45"
+                    android:padding="4dp"/>
 
                 <LinearLayout
                     android:id="@+id/color_pref_blue_id"
