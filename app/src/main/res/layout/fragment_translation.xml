@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.TranslationFragment"
+    android:animateLayoutChanges="true"
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:scrollbars="none"
-    android:animateLayoutChanges="true">
+    tools:context=".fragments.TranslationFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,72 +19,92 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="-45dp"
+            android:animateLayoutChanges="true"
             android:background="?attr/colorSecondaryContainer"
             android:fitsSystemWindows="true"
-            android:animateLayoutChanges="true"
-            android:layout_marginBottom="-45dp"
             android:paddingBottom="45dp">
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/search_text_layout_id"
+            <RelativeLayout
+                android:id="@+id/search_text_layout_id_custom"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="24dp"
-                android:hint="@string/translate"
-                app:boxBackgroundColor="?android:colorBackground"
-                app:boxCornerRadiusBottomEnd="100dp"
-                app:boxCornerRadiusBottomStart="100dp"
-                app:boxCornerRadiusTopEnd="100dp"
-                app:boxCornerRadiusTopStart="100dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp"
-                app:endIconDrawable="@drawable/ic_round_cancel_24"
-                app:endIconMode="clear_text"
-                app:hintEnabled="false"
-                app:startIconDrawable="@drawable/ic_round_search_24">
+                android:layout_marginBottom="24dp">
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/search_text_id"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/search_text_layout_id"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:completionThreshold="3"
+                    android:layout_height="65dp"
                     android:hint="@string/translate"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    tools:ignore="TextContrastCheck"
-                    android:dropDownHeight="400dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    app:boxBackgroundColor="?android:colorBackground"
+                    app:boxCornerRadiusBottomEnd="100dp"
+                    app:boxCornerRadiusBottomStart="100dp"
+                    app:boxCornerRadiusTopEnd="100dp"
+                    app:boxCornerRadiusTopStart="100dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconDrawable="@drawable/ic_round_cancel_24"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:startIconDrawable="@drawable/ic_round_search_24">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/search_text_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:completionThreshold="3"
+                        android:dropDownHeight="400dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/translate"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        tools:ignore="TextContrastCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/voice_input_button"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:icon="@drawable/round_keyboard_voice_24" />
+            </RelativeLayout>
 
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/hidden_translation_layout_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
+
                 <TextView
-                    android:textColor="?colorOnSecondaryContainer"
                     android:id="@+id/main_word"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="center"
                     android:layout_marginBottom="20dp"
+                    android:gravity="center"
                     android:text="@string/word"
+                    android:textColor="?colorOnSecondaryContainer"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:textColor="?colorOnSecondaryContainer"
                     android:id="@+id/translated_word"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/bengali_meaning"
+                    android:textColor="?colorOnSecondaryContainer"
                     android:textStyle="bold"
                     app:drawableEndCompat="@drawable/ic_round_volume_up_speaker_24" />
 
@@ -106,6 +126,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"
                         android:layout_weight=".8"
+                        android:autoSizeTextType="uniform"
+                        android:gravity="center"
                         android:text="@string/save"
                         app:icon="@drawable/ic_round_favorite_border_24"
                         app:iconGravity="top" />
@@ -117,6 +139,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"
                         android:layout_weight="1.4"
+                        android:autoSizeTextType="uniform"
+                        android:gravity="center"
                         android:text="@string/speak"
                         app:icon="@drawable/ic_round_volume_up_speaker_24"
                         app:iconGravity="top" />
@@ -127,6 +151,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"
                         android:layout_weight=".8"
+                        android:autoSizeTextType="uniform"
+                        android:gravity="center"
                         android:text="@string/copy"
                         app:icon="@drawable/ic_round_content_copy_24"
                         app:iconGravity="top" />
@@ -139,40 +165,39 @@
 
 
         <com.google.android.material.card.MaterialCardView
-            android:animateLayoutChanges="true"
+            style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:minHeight="50dp"
-            app:cardCornerRadius="45dp"
             android:layout_marginBottom="-45dp"
+            android:animateLayoutChanges="true"
+            android:minHeight="50dp"
             android:paddingStart="18dp"
             android:paddingEnd="18dp"
-            style="@style/Widget.Material3.CardView.Elevated">
+            app:cardCornerRadius="45dp">
 
             <LinearLayout
                 android:id="@+id/viewpager_hidden_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:visibility="gone"
-                android:paddingBottom="45dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp">
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical"
+                android:paddingBottom="45dp"
+                android:visibility="gone">
+
                 <com.google.android.material.tabs.TabLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/tab_layout_id"
                     style="@style/Widget.Material3.TabLayout"
-                    android:background="?colorSurface"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="?colorSurface" />
 
                 <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/pager"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/pager"/>
+                    android:layout_height="match_parent" />
             </LinearLayout>
-
-
 
 
             <LinearLayout

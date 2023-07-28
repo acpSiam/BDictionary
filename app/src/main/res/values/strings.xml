@@ -46,7 +46,6 @@
     <string name="no">No</string>
 
 
-
     <!--    Quiz Fragment-->
     <string name="quiz">Play a quiz</string>
     <string name="focus_on"><u>Focus on:</u></string>
@@ -109,14 +108,7 @@
     <string name="adaptive_app_icon_preference_summary">App icon changes according to the app theme</string>
     <string name="language_preference_title">Language</string>
     <string name="preferred_color_selection">Choose your preferred color</string> <!-- DIALOGUE COLOR CHOICE-->
-    <string name="purple_message_string"><small>for BTS lovers 🥴</small></string> <!-- DIALOGUE COLOR CHOICE-->
-
-
-
-
-
-
-
+    <string name="purple_message_string"><small>for BTS armies :></small></string> <!-- DIALOGUE COLOR CHOICE-->
 
 
     <!--    Large Strings-->
@@ -152,7 +144,6 @@
     </string>
 
 
-
     <!--    KEYS ONLY-->
     <!--    Shared Preferences Strings-->
     <string name="SHARED_PREFERENCES_APP_PROCESS" translatable="false">SHARED_PREFERENCES_APP_PROCESS</string>
@@ -181,6 +172,20 @@
     <!--    Preference Screen Keys-->
     <string name="COLOR_PREFERENCE" translatable="false">COLOR_PREFERENCE</string>
     <string name="LANGUAGE_PREFERENCE" translatable="false">LANGUAGE_PREFERENCE</string>
+
+
+    <!--    Preferred Color Keys-->
+    <string name="PREFERRED_COLOR_CYAN" translatable="false">CYAN</string>
+    <string name="PREFERRED_COLOR_PURPLE" translatable="false">PURPLE</string>
+    <string name="PREFERRED_COLOR_LIME" translatable="false">LIME</string>
+    <string name="PREFERRED_COLOR_CORAL" translatable="false">CORAL</string>
+    <string name="PREFERRED_COLOR_VIOLET" translatable="false">VIOLET</string>
+    <string name="PREFERRED_COLOR_INDIGO" translatable="false">INDIGO</string>
+    <string name="PREFERRED_COLOR_BLUE" translatable="false">BLUE</string>
+    <string name="PREFERRED_COLOR_GREEN" translatable="false">MINT_GREEN</string>
+    <string name="PREFERRED_COLOR_YELLOW" translatable="false">GOLDEN_YELLOW</string>
+    <string name="PREFERRED_COLOR_ORANGE" translatable="false">ORANGE</string>
+    <string name="PREFERRED_COLOR_RED" translatable="false">RED</string>
 
 
 </resources>

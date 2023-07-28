@@ -81,50 +81,89 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferenceEditor = sharedPreferences.edit();
 
         //Currently chosen Theme by user
-        String currentTheme = sharedPreferences.getString(getString(R.string.SELECTED_THEME_COLOR), "blue");
+        String currentTheme = sharedPreferences.getString(getString(R.string.SELECTED_THEME_COLOR),
+                getString(R.string.PREFERRED_COLOR_BLUE));
 
         // Check if it's a night theme
         if (nightTheme()) {
             // Night theme is enabled
             // Set the appropriate theme based on the current selected theme
             switch (currentTheme) {
-                case "blue":
-                    setTheme(R.style.AppTheme_Dark); // Apply the dark version of the "blue" theme
-
+                case "CYAN":
+                    setTheme(R.style.Cyan_AppTheme_Dark); // Apply the dark version of the "CYAN" theme
                     break;
-                case "purple":
-                    setTheme(R.style.Purple_AppTheme_Dark); // Apply the dark version of the "purple" theme
-
+                case "PURPLE":
+                    setTheme(R.style.Purple_AppTheme_Dark); // Apply the dark version of the "PURPLE" theme
                     break;
-                case "cyan":
-                    setTheme(R.style.Cyan_AppTheme_Dark); // Apply the dark version of the "cyan" theme
-
+                case "LIME":
+                    setTheme(R.style.Lime_AppTheme_Dark); // Apply the dark version of the "LIME" theme
                     break;
-                case "lime":
-                    setTheme(R.style.Lime_AppTheme_Dark); // Apply the dark version of the "lime" theme
-
+                case "CORAL":
+                    setTheme(R.style.Coral_AppTheme_Dark); // Apply the dark version of the "CORAL" theme
                     break;
+                case "VIOLET":
+                    setTheme(R.style.Violet_AppTheme_Dark); // Apply the dark version of the "VIOLET" theme
+                    break;
+                case "INDIGO":
+                    setTheme(R.style.Indigo_AppTheme_Dark); // Apply the dark version of the "INDIGO" theme
+                    break;
+                case "MINT_GREEN":
+                    setTheme(R.style.Mint_Green_AppTheme_Dark); // Apply the dark version of the "GREEN" theme
+                    break;
+                case "GOLDEN_YELLOW":
+                    setTheme(R.style.Golden_Yellow_AppTheme_Dark); // Apply the dark version of the "YELLOW" theme
+                    break;
+                case "ORANGE":
+                    setTheme(R.style.Orange_AppTheme_Dark); // Apply the dark version of the "ORANGE" theme
+                    break;
+                case "RED":
+                    setTheme(R.style.Red_AppTheme_Dark); // Apply the dark version of the "RED" theme
+                    break;
+                default:
+                    // Default theme if the color name is not recognized
+                    setTheme(R.style.Blue_AppTheme_Dark);
+                    break;
+
             }
         } else {
             // Night theme is not enabled (day theme)
             // Set the appropriate theme based on the current selected theme
             switch (currentTheme) {
-                case "blue":
-                    setTheme(R.style.AppTheme); // Apply the "blue" theme
-
+                case "CYAN":
+                    setTheme(R.style.Cyan_AppTheme); // Apply the dark version of the "CYAN" theme
                     break;
-                case "purple":
-                    setTheme(R.style.Purple_AppTheme); // Apply the "purple" theme
-
+                case "PURPLE":
+                    setTheme(R.style.Purple_AppTheme); // Apply the dark version of the "PURPLE" theme
                     break;
-                case "cyan":
-                    setTheme(R.style.Cyan_AppTheme); // Apply the "cyan" theme
-
+                case "LIME":
+                    setTheme(R.style.Lime_AppTheme); // Apply the dark version of the "LIME" theme
                     break;
-                case "lime":
-                    setTheme(R.style.Lime_AppTheme); // Apply the "lime" theme
-
+                case "CORAL":
+                    setTheme(R.style.Coral_AppTheme); // Apply the dark version of the "CORAL" theme
                     break;
+                case "VIOLET":
+                    setTheme(R.style.Violet_AppTheme); // Apply the dark version of the "VIOLET" theme
+                    break;
+                case "INDIGO":
+                    setTheme(R.style.Indigo_AppTheme); // Apply the dark version of the "INDIGO" theme
+                    break;
+                case "MINT_GREEN":
+                    setTheme(R.style.Mint_Green_AppTheme); // Apply the dark version of the "GREEN" theme
+                    break;
+                case "GOLDEN_YELLOW":
+                    setTheme(R.style.Golden_Yellow_AppTheme); // Apply the dark version of the "YELLOW" theme
+                    break;
+                case "ORANGE":
+                    setTheme(R.style.Orange_AppTheme); // Apply the dark version of the "ORANGE" theme
+                    break;
+                case "RED":
+                    setTheme(R.style.Red_AppTheme); // Apply the dark version of the "RED" theme
+                    break;
+                default:
+                    // Default theme if the color name is not recognized
+                    setTheme(R.style.Blue_AppTheme);
+                    break;
+
             }
         }
 
@@ -206,17 +245,39 @@ public class MainActivity extends AppCompatActivity {
 
             int themeResId = 0;
             switch (currentTheme) {
-                case "blue":
-                    themeResId = nightTheme() ? R.style.AppTheme_Dark : R.style.AppTheme;
-                    break;
-                case "purple":
-                    themeResId = nightTheme() ? R.style.Purple_AppTheme_Dark : R.style.Purple_AppTheme;
-                    break;
-                case "cyan":
+                case "CYAN":
                     themeResId = nightTheme() ? R.style.Cyan_AppTheme_Dark : R.style.Cyan_AppTheme;
                     break;
-                case "lime":
+                case "PURPLE":
+                    themeResId = nightTheme() ? R.style.Purple_AppTheme_Dark : R.style.Purple_AppTheme;
+                    break;
+                case "LIME":
                     themeResId = nightTheme() ? R.style.Lime_AppTheme_Dark : R.style.Lime_AppTheme;
+                    break;
+                case "CORAL":
+                    themeResId = nightTheme() ? R.style.Coral_AppTheme_Dark : R.style.Coral_AppTheme;
+                    break;
+                case "VIOLET":
+                    themeResId = nightTheme() ? R.style.Violet_AppTheme_Dark : R.style.Violet_AppTheme;
+                    break;
+                case "INDIGO":
+                    themeResId = nightTheme() ? R.style.Indigo_AppTheme_Dark : R.style.Indigo_AppTheme;
+                    break;
+                case "MINT_GREEN":
+                    themeResId = nightTheme() ? R.style.Mint_Green_AppTheme_Dark : R.style.Mint_Green_AppTheme;
+                    break;
+                case "GOLDEN_YELLOW":
+                    themeResId = nightTheme() ? R.style.Golden_Yellow_AppTheme_Dark : R.style.Golden_Yellow_AppTheme;
+                    break;
+                case "ORANGE":
+                    themeResId = nightTheme() ? R.style.Orange_AppTheme_Dark : R.style.Orange_AppTheme;
+                    break;
+                case "RED":
+                    themeResId = nightTheme() ? R.style.Red_AppTheme_Dark : R.style.Red_AppTheme;
+                    break;
+                default:
+                    // Default theme if the color name is not recognized
+                    themeResId = nightTheme() ? R.style.Blue_AppTheme_Dark : R.style.Blue_AppTheme;
                     break;
             }
             if (themeResId != 0) {

@@ -1,0 +1,92 @@
+<resources>
+
+    <style name="RoundedCardViewStart">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Start</item>
+    </style>
+
+    <style name="RoundedCardViewStartFirstRow">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Start.First.Row</item>
+    </style>
+
+    <style name="RoundedCardViewStartLastRow">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Start.Last.Row</item>
+    </style>
+
+    <style name="RoundedCardViewMiddle">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Middle</item>
+    </style>
+
+    <style name="RoundedCardViewEnd">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.End</item>
+    </style>
+
+    <style name="RoundedCardViewEndFirstRow">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.End.First.Row</item>
+    </style>
+
+    <style name="RoundedCardViewEndLastRow">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.End.Last.Row</item>
+    </style>
+
+
+
+
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Start" parent="">
+        <!--        <item name="cornerFamily">cut</item>-->
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">24dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Start.First.Row" parent="">
+<!--        <item name="cornerFamily">cut</item>-->
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Start.Last.Row" parent="">
+<!--        <item name="cornerFamily">cut</item>-->
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">24dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Middle" parent="">
+        <!--        <item name="cornerFamily">rounded</item>-->
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.End" parent="">
+<!--        <item name="cornerFamily">rounded</item>-->
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">24dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.End.First.Row" parent="">
+<!--        <item name="cornerFamily">rounded</item>-->
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.End.Last.Row" parent="">
+<!--        <item name="cornerFamily">rounded</item>-->
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">24dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+    </style>
+
+
+</resources>

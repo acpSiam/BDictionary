@@ -17,8 +17,6 @@ import com.bmarpc.acpsiam.bdictionarydev.R;
 
 import java.util.Locale;
 
-import rikka.material.preference.MaterialSwitchPreference;
-
 public class PreferenceScreenFragment extends PreferenceFragmentCompat {
 
     SharedPreferences sharedPreferences;
@@ -44,10 +42,14 @@ public class PreferenceScreenFragment extends PreferenceFragmentCompat {
             viewCustomDialogForColorChange();
             return false;
         });
-        if (sharedPreferences.getString(getString(R.string.SELECTED_THEME_COLOR), "blue").toLowerCase(Locale.ROOT).equals("purple")) {
-            appColorPreference.setSummary(Html.fromHtml(getString(R.string.color_preference_summary) + " \"PURPLE\" " + getString(R.string.purple_message_string), Html.FROM_HTML_MODE_COMPACT));
+        if (sharedPreferences.getString(getString(R.string.SELECTED_THEME_COLOR),
+                getString(R.string.PREFERRED_COLOR_BLUE)).equals(getString(R.string.PREFERRED_COLOR_PURPLE))) {
+            appColorPreference.setSummary(Html.fromHtml(getString(R.string.color_preference_summary) + " \""
+                    + getString(R.string.PREFERRED_COLOR_PURPLE)
+                    +"\" " + getString(R.string.purple_message_string), Html.FROM_HTML_MODE_COMPACT));
         } else {
-            appColorPreference.setSummary(getString(R.string.color_preference_summary) + " \"" + sharedPreferences.getString(getString(R.string.SELECTED_THEME_COLOR), "blue").toUpperCase() + "\"");
+            appColorPreference.setSummary(getString(R.string.color_preference_summary) + " \"" + sharedPreferences.getString(getString(R.string.SELECTED_THEME_COLOR),
+                    getString(R.string.PREFERRED_COLOR_BLUE)).replace("_", " ").toUpperCase() + "\"");
         }
 
 
@@ -85,20 +87,36 @@ public class PreferenceScreenFragment extends PreferenceFragmentCompat {
         dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_color_preference);
-        LinearLayout blue, cyan, purple, lime;
+
+
+        LinearLayout blue, cyan, purple, lime, mintGreen, coral, goldenYellow, violet, indigo, orange, red;
+
+
         blue = dialog.findViewById(R.id.color_pref_blue_id);
         cyan = dialog.findViewById(R.id.color_pref_cyan_id);
         purple = dialog.findViewById(R.id.color_pref_purple_id);
         lime = dialog.findViewById(R.id.color_pref_lime_id);
+        mintGreen = dialog.findViewById(R.id.color_pref_mint_green_id);
+        coral = dialog.findViewById(R.id.color_pref_coral_id);
+        goldenYellow = dialog.findViewById(R.id.color_pref_golden_yellow_id);
+        violet = dialog.findViewById(R.id.color_pref_violet_id);
+        indigo = dialog.findViewById(R.id.color_pref_indigo_id);
+        orange = dialog.findViewById(R.id.color_pref_orange_id);
+        red = dialog.findViewById(R.id.color_pref_red_id);
 
 
-        blue.setOnClickListener(view -> setTheme(R.style.AppTheme, "blue"));
+        cyan.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_CYAN)));
+        purple.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_PURPLE)));
+        lime.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_LIME)));
+        coral.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_CORAL)));
+        violet.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_VIOLET)));
+        indigo.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_INDIGO)));
+        blue.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_BLUE)));
+        mintGreen.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_GREEN)));
+        goldenYellow.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_YELLOW)));
+        orange.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_ORANGE)));
+        red.setOnClickListener(view -> setTheme(getString(R.string.PREFERRED_COLOR_RED)));
 
-        cyan.setOnClickListener(view -> setTheme(R.style.Cyan_AppTheme, "cyan"));
-
-        purple.setOnClickListener(view -> setTheme(R.style.Purple_AppTheme, "purple"));
-
-        lime.setOnClickListener(view -> setTheme(R.style.Lime_AppTheme, "lime"));
 
 
         dialog.show();
@@ -109,8 +127,7 @@ public class PreferenceScreenFragment extends PreferenceFragmentCompat {
 
     }
 
-    public void setTheme(int theme, String color) {
-        getActivity().setTheme(theme);
+    public void setTheme(String color) {
         editor.putString(getString(R.string.SELECTED_THEME_COLOR), color);
         editor.apply();
         getActivity().recreate();

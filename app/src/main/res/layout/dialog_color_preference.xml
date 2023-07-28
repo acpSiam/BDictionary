@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.Material3.CardView.Elevated"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,14 +16,13 @@
         android:orientation="vertical">
 
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:scaleType="centerInside"
-                app:lottie_autoPlay="true"
-                app:lottie_rawRes="@raw/paint"
-                android:layout_gravity="center"/>
-
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/paint" />
 
 
         <TextView
@@ -32,26 +30,171 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo_bhaijaan"
             android:text="@string/preferred_color_selection"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"/>
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_marginTop="12dp"
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_bhaijaan"
+            android:text="Random Colors"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="30dp"
-            style="@style/Widget.Material3.CardView.Filled">
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:id="@+id/grammar_copyright_notice_scrollview_id">
+            android:weightSum="4">
 
 
-                    <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewStart"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/cyan_md_theme_light_secondaryContainer"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_cyan_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/cyan_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="4"
-                        android:baselineAligned="false">
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Cyan"
+                        android:textColor="@color/cyan_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewMiddle"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/purple_md_theme_light_secondaryContainer"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_purple_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/purple_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Purple"
+                        android:textColor="@color/purple_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewMiddle"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/lime_md_theme_light_secondaryContainer"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_lime_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/lime_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Lime"
+                        android:textColor="@color/lime_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewEnd"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/coral_md_theme_light_secondaryContainer">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_coral_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/coral_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Coral"
+                        android:textColor="@color/coral_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
 
 
@@ -61,135 +204,304 @@
 
 
 
+        </LinearLayout>
 
 
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_margin="4dp"
-                            android:id="@+id/color_pref_blue_id"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_height="70dp"
-                                app:cardBackgroundColor="@color/seed"
-                                app:cardCornerRadius="30dp"
-                                app:cardElevation="0dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_bhaijaan"
+            android:text="Rainbow Colors"
+            android:layout_marginTop="18dp"/>
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/baloo_bhaijaan"
-                                android:gravity="center"
-                                android:text="Blue"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_margin="4dp"
-                            android:id="@+id/color_pref_cyan_id"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_height="70dp"
-                                app:cardBackgroundColor="@color/cyan_seed"
-                                app:cardCornerRadius="30dp"
-                                app:cardElevation="0dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/baloo_bhaijaan"
-                                android:gravity="center"
-                                android:text="Cyan"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_margin="4dp"
-                            android:id="@+id/color_pref_purple_id"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_height="70dp"
-                                app:cardBackgroundColor="@color/purple_seed"
-                                app:cardCornerRadius="30dp"
-                                app:cardElevation="0dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:fontFamily="@font/baloo_bhaijaan"
-                                    android:lineHeight="8dp"
-                                    android:rotation="-45"
-                                    android:text="for bts \nlovers🥴"
-                                    android:textColor="?colorSecondary"
-                                    tools:targetApi="p" />
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/baloo_bhaijaan"
-                                android:gravity="center"
-                                android:text="Purple"
-                                android:textSize="16sp" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_margin="4dp"
-                            android:id="@+id/color_pref_lime_id"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_height="70dp"
-                                app:cardBackgroundColor="@color/lime_seed"
-                                app:cardCornerRadius="30dp"
-                                app:cardElevation="0dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/baloo_bhaijaan"
-                                android:gravity="center"
-                                android:text="Lime"
-                                android:textSize="16sp" />
-                        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4">
 
 
 
 
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewStartFirstRow"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/violet_md_theme_light_secondaryContainer"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_violet_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/violet_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Violet"
+                        android:textColor="@color/violet_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
 
 
-                    </LinearLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewMiddle"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/indigo_md_theme_light_secondaryContainer"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_indigo_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/indigo_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Indigo"
+                        android:textColor="@color/indigo_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
 
-                </ScrollView>
-        </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewMiddle"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/blue_md_theme_light_secondaryContainer"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_blue_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/blue_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Blue"
+                        android:textColor="@color/blue_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewEndFirstRow"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/mint_green_md_theme_light_secondaryContainer">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_mint_green_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/mint_green_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Green"
+                        android:textColor="@color/mint_green_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            android:layout_marginTop="4dp">
+
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewStartLastRow"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/golden_yellow_md_theme_light_secondaryContainer"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_golden_yellow_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/golden_yellow_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Yellow"
+                        android:textColor="@color/golden_yellow_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewMiddle"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/orange_md_theme_light_secondaryContainer"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_orange_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/orange_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Orange"
+                        android:textColor="@color/orange_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/RoundedCardViewEndLastRow"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@color/red_md_theme_light_secondaryContainer">
+
+                <LinearLayout
+                    android:id="@+id/color_pref_red_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        app:cardBackgroundColor="@color/red_seed"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="0dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhaijaan"
+                        android:gravity="center"
+                        android:text="Red"
+                        android:textColor="@color/red_md_theme_light_onSecondaryContainer"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
 
 
 

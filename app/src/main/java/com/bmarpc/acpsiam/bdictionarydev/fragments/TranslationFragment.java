@@ -1,14 +1,22 @@
 package com.bmarpc.acpsiam.bdictionarydev.fragments;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -20,6 +28,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -33,7 +43,7 @@ import com.bmarpc.acpsiam.bdictionarydev.helpers.DBHelperPrepositions;
 import com.bmarpc.acpsiam.bdictionarydev.helpers.DBHelperProverbs;
 import com.bmarpc.acpsiam.bdictionarydev.otherclasses.LibraryModel;
 import com.bmarpc.acpsiam.bdictionarydev.otherclasses.MyMethods;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -47,7 +57,6 @@ import java.util.Locale;
 
 public class TranslationFragment extends Fragment implements View.OnClickListener {
 
-
     DBHelper dbHelper;
     DBHelperIdioms dbHelperIdioms;
     DBHelperProverbs dbHelperProverbs;
@@ -58,6 +67,9 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
     String EN_SYNS1, BN_SYNS1, ANTS1, SENTS1; //Prefs
     String WORD_TYPE1, DEF_EN1, DEF_BN1; //Prefs
     TabLayout tabLayout;
+    @ColorInt
+    int colorNormalSaveButtonTint;
+    MaterialButton voiceInputButton;
     private TextInputLayout searchTextLayout;
     private TextView mainWord, translatedWord, animationText;
     private LinearLayout lottieLayout, hiddenLayout, viewpagerHiddenLayout;
@@ -66,9 +78,9 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
     private TextToSpeech textToSpeech;
     private String PRONUNCIATION = null;
     private ViewPager2 viewPager2;
-    @ColorInt int colorNormalSaveButtonTint;
+    // ActivityResultLauncher for speech recognition
+    private ActivityResultLauncher<Intent> speechRecognitionLauncher;
 
-    static BottomNavigationView bottomNavigationView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -76,7 +88,7 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
         View v = inflater.inflate(R.layout.fragment_translation, container, false);
 
 
-        Resources.Theme theme  = requireActivity().getTheme();
+        Resources.Theme theme = requireActivity().getTheme();
 
         TypedValue colorNormalFavButton = new TypedValue();
         theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimaryContainer, colorNormalFavButton, true);
@@ -106,14 +118,65 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
         viewPager2 = v.findViewById(R.id.pager);
         tabLayout = v.findViewById(R.id.tab_layout_id);
 
+        voiceInputButton = v.findViewById(R.id.voice_input_button);
 
-        //*Settting up the adapter to the search EditText
+
+        //*Setting the end icon for Translation Text Input
+        updateEndIconVisibility(searchTextLayout.getEditText().getText().toString());
+
+        // Add a TextWatcher to monitor changes in the TextInputEditText
+        searchTextLayout.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // Update the end icon visibility based on text length
+                updateEndIconVisibility(editable.toString());
+            }
+        });
+
+
+        // Initialize the ActivityResultLauncher
+        speechRecognitionLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        // Get the speech recognition results as a list of strings
+                        ArrayList<String> speechResults = result.getData().getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                        if (speechResults != null && !speechResults.isEmpty()) {
+                            // Set the recognized speech as the text in the TextInputLayout
+                            String recognizedText = speechResults.get(0);
+                            searchTextLayout.getEditText().setText(recognizedText.split(" ")[0]);
+                            translateWord(recognizedText.split(" ")[0].trim());
+                            updateEndIconVisibility(recognizedText.split(" ")[0]);
+                            searchTextLayout.clearFocus();
+                        }
+                    }
+                });
+
+
+        voiceInputButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (TextUtils.isEmpty(searchTextLayout.getEditText().getText())) {
+                    startVoiceInput();
+                }
+            }
+        });
+
+
+        //*Setting up the adapter to the search EditText
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, LibraryModel.allEnWordsArrayList);
         searchText.setAdapter(arrayAdapter);
 
         searchText.setOnItemClickListener((parent, view, position, id) -> {
             String clickedItem = parent.getItemAtPosition(position).toString();
-            if (clickedItem.endsWith("(IDIOM)")){
+            if (clickedItem.endsWith("(IDIOM)")) {
                 clickedItem = clickedItem.replace("(IDIOM)", " ").trim();
             } else if (clickedItem.endsWith("(PROVERB)")) {
                 clickedItem = clickedItem.replace("(PROVERB)", " ").trim();
@@ -153,7 +216,7 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
 
 
             //To filter keyListener from being triggered twice
-            if (event.getAction()!=KeyEvent.ACTION_DOWN)
+            if (event.getAction() != KeyEvent.ACTION_DOWN)
                 return true;
 
             if (keyCode == KeyEvent.KEYCODE_ENTER) {
@@ -167,7 +230,6 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
 
         return v;
     }
-
 
 
     @SuppressLint({"SetTextI18n", "UseCompatLoadingForDrawables"})
@@ -185,20 +247,20 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
         cursorArrayList.add(cursor);
 
         Cursor finalCursor = null;
-        for (int x = 0; x < cursorArrayList.size(); x++){
-            if (cursorArrayList.get(x).getCount() != 0){
+        for (int x = 0; x < cursorArrayList.size(); x++) {
+            if (cursorArrayList.get(x).getCount() != 0) {
                 finalCursor = cursorArrayList.get(x);
                 break;
             }
         }
         if (finalCursor != null) {
             while (finalCursor.moveToNext()) {
-                if (searchTextLayout.getError()!=null){
+                if (searchTextLayout.getError() != null) {
                     searchTextLayout.setError(null);
                 }
 
 
-                if (finalCursor == cursor){
+                if (finalCursor == cursor) {
                     ENGLISH = s;
                     BANGLA = cursor.getString(2);
                     PRONUNCIATION = cursor.getString(3);
@@ -220,8 +282,7 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
                     WORD_TYPE = "Idiom";
                     DEFINITION_BN = "";
                     ANTONYMS = "";
-                }
-                else if (finalCursor == proverbsCursor) {
+                } else if (finalCursor == proverbsCursor) {
                     ENGLISH = s;
                     BANGLA = proverbsCursor.getString(2);
                     DEFINITION_EN = "";
@@ -232,8 +293,7 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
                     WORD_TYPE = "";
                     DEFINITION_BN = "";
                     ANTONYMS = "";
-                }
-                else if (finalCursor == prepositionsCursor) {
+                } else if (finalCursor == prepositionsCursor) {
                     ENGLISH = s;
                     BANGLA = prepositionsCursor.getString(2);
                     DEFINITION_EN = "";
@@ -255,10 +315,8 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
             Toast.makeText(getContext(), "called1", Toast.LENGTH_SHORT).show();
 
 
-
-
             //*Changing Save Button Color Based On User Search
-            if (dbHelper.favouritesExists(ENGLISH)){
+            if (dbHelper.favouritesExists(ENGLISH)) {
                 saveButton.setIcon(requireActivity().getDrawable(R.drawable.ic_baseline_favorite_24));
                 saveButton.setIconTint(ColorStateList.valueOf(Color.RED));
             } else {
@@ -390,6 +448,89 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
 
     }
 
+    public int getFragmentState() {
+        int fragmentState;
+
+        if (EN_SYNS1.trim().equals("") && BN_SYNS1.trim().equals("") && ANTS1.trim().equals("") && SENTS1.trim().equals("")
+                && WORD_TYPE1.trim().equals("") && DEF_BN1.trim().equals("") && DEF_EN1.trim().equals("")) {
+            fragmentState = 3;
+        } else if (EN_SYNS1.trim().equals("") && BN_SYNS1.trim().equals("") && ANTS1.trim().equals("") && SENTS1.trim().equals("")) {
+            fragmentState = 1;
+        } else if (WORD_TYPE1.trim().equals("") && DEF_BN1.trim().equals("") && DEF_EN1.trim().equals("")) {
+            fragmentState = 2;
+        } else {
+            fragmentState = 0;
+        }
+
+        return fragmentState;
+    }
+
+    private void updateEndIconVisibility(String text) {
+        if (TextUtils.isEmpty(text)) {
+            voiceInputButton.setVisibility(View.VISIBLE);
+            searchTextLayout.setEndIconVisible(false);
+        } else {
+            voiceInputButton.setVisibility(View.GONE);
+            searchTextLayout.setEndIconVisible(true);
+        }
+
+    }
+
+    private void startVoiceInput() {
+        // Check if the device supports speech recognition
+        if (SpeechRecognizer.isRecognitionAvailable(requireContext())) {
+            // Create an intent to prompt the user for speech input
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+
+            // Start the speech recognition activity with the specified intent
+            speechRecognitionLauncher.launch(intent);
+        } else {
+            // Speech recognition is not available on this device, show an error message
+            Toast.makeText(requireContext(), "Speech recognition is not supported on your device.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private static class ZoomOutPageTransformer implements ViewPager2.PageTransformer {
+        private static final float MIN_SCALE = 0.85f;
+        private static final float MIN_ALPHA = 0.5f;
+
+        @Override
+        public void transformPage(@NonNull @NotNull View page, float position) {
+            int pageWidth = page.getWidth();
+            int pageHeight = page.getHeight();
+
+            if (position < -1) { // [-Infinity,-1)
+                // This page is way off-screen to the left.
+                page.setAlpha(0f);
+
+            } else if (position <= 1) { // [-1,1]
+                // Modify the default slide transition to shrink the page as well
+                float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
+                float vertMargin = pageHeight * (1 - scaleFactor) / 2;
+                float horzMargin = pageWidth * (1 - scaleFactor) / 2;
+                if (position < 0) {
+                    page.setTranslationX(horzMargin - vertMargin / 2);
+                } else {
+                    page.setTranslationX(-horzMargin + vertMargin / 2);
+                }
+
+                // Scale the page down (between MIN_SCALE and 1)
+                page.setScaleX(scaleFactor);
+                page.setScaleY(scaleFactor);
+
+                // Fade the page relative to its size.
+                page.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE) / (1 - MIN_SCALE) * (1 - MIN_ALPHA));
+
+            } else { // (1,+Infinity]
+                // This page is way off-screen to the right.
+                page.setAlpha(0f);
+            }
+        }
+
+    }
 
     private class ScreenSlidePageAdapter extends FragmentStateAdapter {
         public ScreenSlidePageAdapter(TranslationFragment fragmentTranslate) {
@@ -436,66 +577,6 @@ public class TranslationFragment extends Fragment implements View.OnClickListene
             }
             return NUM_PAGES;
         }
-    }
-
-    private static class ZoomOutPageTransformer implements ViewPager2.PageTransformer {
-        private static final float MIN_SCALE = 0.85f;
-        private static final float MIN_ALPHA = 0.5f;
-
-        @Override
-        public void transformPage(@NonNull @NotNull View page, float position) {
-            int pageWidth = page.getWidth();
-            int pageHeight = page.getHeight();
-
-            if (position < -1) { // [-Infinity,-1)
-                // This page is way off-screen to the left.
-                page.setAlpha(0f);
-
-            } else if (position <= 1) { // [-1,1]
-                // Modify the default slide transition to shrink the page as well
-                float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
-                float vertMargin = pageHeight * (1 - scaleFactor) / 2;
-                float horzMargin = pageWidth * (1 - scaleFactor) / 2;
-                if (position < 0) {
-                    page.setTranslationX(horzMargin - vertMargin / 2);
-                } else {
-                    page.setTranslationX(-horzMargin + vertMargin / 2);
-                }
-
-                // Scale the page down (between MIN_SCALE and 1)
-                page.setScaleX(scaleFactor);
-                page.setScaleY(scaleFactor);
-
-                // Fade the page relative to its size.
-                page.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE) / (1 - MIN_SCALE) * (1 - MIN_ALPHA));
-
-            } else { // (1,+Infinity]
-                // This page is way off-screen to the right.
-                page.setAlpha(0f);
-            }
-        }
-
-    }
-
-
-    public int getFragmentState() {
-        int fragmentState;
-
-         if (EN_SYNS1.trim().equals("") && BN_SYNS1.trim().equals("") && ANTS1.trim().equals("") && SENTS1.trim().equals("")
-                && WORD_TYPE1.trim().equals("") && DEF_BN1.trim().equals("") && DEF_EN1.trim().equals("")) {
-            fragmentState = 3;
-        }
-        else if (EN_SYNS1.trim().equals("") && BN_SYNS1.trim().equals("") && ANTS1.trim().equals("") && SENTS1.trim().equals("")) {
-            fragmentState = 1;
-        }
-        else if (WORD_TYPE1.trim().equals("") && DEF_BN1.trim().equals("") && DEF_EN1.trim().equals("")) {
-            fragmentState = 2;
-        }
-        else {
-            fragmentState = 0;
-        }
-
-        return fragmentState;
     }
 
 
