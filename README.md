@@ -1,8 +1,7 @@
 # <img align="left" loading="lazy" src="screenshots/bdictionary_logo.png" height="50"/> BDictionary
 
 
-<a href='https://github.com/acpSiam/BDictionary/raw/master/app/release/BDictionary%20%5BV1%20-%201.0%20-%20AVA%5D.apk'><img alt='Download BDictionary' src='screenshots/Download%20Button%20Github.png' height='80'/></a>
-
+<a href='https://raw.githubusercontent.com/acpSiam/BDictionary/master/app/release/BDictionary%20%5BV2%20-%202.0%20-%20BARIRA%5D.apk'><img alt='Download BDictionary' src='screenshots/Download%20Button%20Github.png' height='80'/></a>
 ## Overview
 
 Welcome to BDictionary! BDictionary is designed to help users with Bengali to English translations, English grammar learning, idioms, proverbs, prepositions, and even a fun quiz feature. Whether you are a language enthusiast, a student, or someone looking to improve their language skills, this app has got you covered!  **_With of course an awesome UI_**
