@@ -64,6 +64,7 @@ public class SetupActivity extends AppCompatActivity {
             ExtendedFloatingActionButton startButton = findViewById(R.id.setup_activity_start_button_id);
             startButton.setOnClickListener(view -> new Thread(() -> {
 
+                view.setEnabled(false);
                 for (String DATABASES : DATABASES_AVAILABLE){
                     if (!databaseExist(DATABASES)){
                         try {
